@@ -4,10 +4,9 @@ MyChat is a full stack messaging application under active development. It has a 
 
 ## Run locally
 
-Requirements: Docker Desktop with Compose.
+Requirements: Docker Desktop with Compose. Run these commands from the project directory.
 
 ```powershell
-cd C:\Users\user\Desktop\Mychat
 docker compose up --build -d
 docker compose exec backend python manage.py seed_demo
 ```
@@ -78,4 +77,3 @@ Python 3.12 and Node 22 are supported. Copy `.env.example` values into your shel
 MyChat account login uses Django session cookies and CSRF protection. Never commit real secrets. Use HTTPS, external secret storage, private media storage, and a deployment review before exposing this service publicly. MyChat stores message content on its servers; it does not claim end to end encryption. WhatsApp integration uses only the official Business Cloud API and does not provide personal WhatsApp history or Status.
 
 Documentation: [architecture](docs/architecture.md), [API](docs/api.md), [database](docs/database.md), [WhatsApp](docs/whatsapp-integration.md), [security](docs/security.md), [deployment](docs/deployment.md), [testing](docs/testing.md).
-

@@ -1,0 +1,15 @@
+Django==5.2.18
+djangorestframework==3.16.1
+channels==4.3.2
+channels-redis==4.3.0
+daphne==4.2.1
+psycopg[binary]==3.3.2
+dj-database-url==3.0.1
+celery[redis]==5.5.3
+httpx==0.28.1
+Pillow==11.3.0
+drf-spectacular==0.28.0
+django-filter==25.2
+pytest==8.4.2
+pytest-django==4.11.1
+ruff==0.13.2

@@ -1,0 +1,36 @@
+from django.urls import path
+from . import views
+from .whatsapp_views import WhatsAppSendView, WhatsAppStatusView, WhatsAppTemplatesView, WhatsAppWebhookView
+
+urlpatterns = [
+    path("auth/csrf/", views.csrf),
+    path("auth/register/", views.RegisterView.as_view()),
+    path("auth/login/", views.LoginView.as_view()),
+    path("auth/logout/", views.LogoutView.as_view()),
+    path("auth/me/", views.MeView.as_view()),
+    path("auth/websocket-token/", views.WebSocketTokenView.as_view()),
+    path("users/me/", views.MeView.as_view()),
+    path("users/me/preferences/", views.PreferenceView.as_view()),
+    path("contacts/", views.ContactListView.as_view()),
+    path("contacts/<uuid:pk>/", views.ContactDetailView.as_view()),
+    path("conversations/", views.ConversationListView.as_view()),
+    path("conversations/<uuid:pk>/", views.ConversationDetailView.as_view()),
+    path("conversations/<uuid:pk>/messages/", views.MessageListView.as_view()),
+    path("conversations/<uuid:pk>/attachments/", views.AttachmentUploadView.as_view()),
+    path("conversations/<uuid:pk>/<str:action>/", views.ConversationActionView.as_view()),
+    path("messages/<uuid:pk>/", views.MessageDetailView.as_view()),
+    path("messages/<uuid:pk>/reactions/", views.ReactionView.as_view()),
+    path("attachments/<uuid:pk>/download/", views.AttachmentDownloadView.as_view()),
+    path("stories/", views.StoryListView.as_view()),
+    path("stories/<uuid:pk>/", views.StoryDetailView.as_view()),
+    path("stories/<uuid:pk>/view/", views.StoryViewView.as_view()),
+    path("stories/<uuid:pk>/media/", views.StoryMediaView.as_view()),
+    path("groups/", views.GroupListView.as_view()),
+    path("groups/<uuid:pk>/", views.GroupDetailView.as_view()),
+    path("groups/<uuid:pk>/members/", views.GroupMembersView.as_view()),
+    path("groups/<uuid:pk>/members/<uuid:member_id>/", views.GroupMemberDetailView.as_view()),
+    path("integrations/whatsapp/status/", WhatsAppStatusView.as_view()),
+    path("integrations/whatsapp/templates/", WhatsAppTemplatesView.as_view()),
+    path("integrations/whatsapp/messages/", WhatsAppSendView.as_view()),
+    path("webhooks/whatsapp/", WhatsAppWebhookView.as_view()),
+]
